@@ -1,0 +1,217 @@
+.snowboards {
+  width: 100%;
+  padding-top: 160px;
+  padding-bottom: 216px;
+  background-color: #fff;
+  position: relative;
+  overflow: hidden;
+  color: #000;
+
+  h1 {
+    font-size: 4.8rem;
+    color: #000;
+    text-align: center;
+    margin-bottom: 38px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  p {
+    font-size: 1.4rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+    font-weight: 500;
+  }
+  .ex {
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: #000;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 122px;
+    transform: rotate(45deg);
+  }
+  .ex::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: #000;
+    transform: rotate(90deg);
+  }
+  .slider {
+    width: 100%;
+    height: 480px;
+    position: relative;
+    overflow: hidden;
+
+    .prev {
+      width: 122px;
+      height: 237px;
+      position: absolute;
+      left: 20px;
+      top: 74px;
+      opacity: 0.5;
+      transition: 0.2s;
+      z-index: 333;
+
+      &:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
+
+      span {
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: 50%;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 170px;
+          height: 15px;
+          background-color: #000;
+          transform: rotate(45deg);
+          position: absolute;
+          bottom: -55px;
+          left: -90px;
+        }
+        &::before {
+          content: "";
+          display: block;
+          width: 170px;
+          height: 15px;
+          background-color: #000;
+          transform: rotate(-45deg);
+          position: absolute;
+          bottom: 55px;
+          left: -90px;
+        }
+      }
+    }
+
+    .next {
+      width: 122px;
+      height: 237px;
+      position: absolute;
+      right: 20px;
+      top: 74px;
+      opacity: 0.5;
+      transition: 0.2s;
+      z-index: 333;
+
+      &:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
+
+      span {
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: 50%;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 170px;
+          height: 15px;
+          background-color: #000;
+          transform: rotate(-45deg);
+          position: absolute;
+          bottom: -55px;
+          right: -90px;
+        }
+        &::before {
+          content: "";
+          display: block;
+          width: 170px;
+          height: 15px;
+          background-color: #000;
+          transform: rotate(45deg);
+          position: absolute;
+          bottom: 55px;
+          right: -90px;
+        }
+      }
+    }
+
+    .slides {
+      height: 480px;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      margin-left: -175px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      transition: 0.3s;
+
+      .slide {
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        transition: 0.3s;
+
+        img {
+          margin-bottom: 39px;
+        }
+        h3 {
+          font-size: 2.4rem;
+          text-transform: uppercase;
+          font-weight: 500;
+          opacity: 0;
+          transition: 0.3s;
+        }
+      }
+      .active {
+        h3 {
+          opacity: 1;
+        }
+        z-index: 222;
+      }
+    }
+    .slides::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(255, 255, 255, 0.3);
+      z-index: 111;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .snowboards {
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    .slider {
+      .prev, .next {
+        opacity: 0.3;
+      }
+      .slides {
+        .slide {
+          h3 {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
