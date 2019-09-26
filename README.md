@@ -1,1 +1,1 @@
-# snowboard-landing
+# https://gimir.github.io/snowboard-landing/
