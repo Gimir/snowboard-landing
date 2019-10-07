@@ -29,7 +29,7 @@ const scssTask = () => {
     .pipe(sass())
     .pipe(postcss([ autoprefixer(), cssnano() ]))
     .pipe(sourcemaps.write('.'))
-    .pipe(dest('dist/css'));
+    .pipe(dest('docs/css'));
 }
 const jsTask = () => {
   return src(jsPath)
@@ -40,12 +40,12 @@ const jsTask = () => {
 
 const watchTask = () => {
    watch(
-    [scssPath, 'app/js/**/*.js'],
-    parallel(scssTask, jsTask)
+    [scssPath],
+    parallel(scssTask)
   );
 };
 
 exports.default = series(
-  parallel(scssTask, jsTask),
+  parallel(scssTask),
   watchTask
 );
